@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "salajuegos-41be3"
+  },
+  "targets": {
+    "salajuegos-41be3": {
+      "hosting": {
+        "TpSalaDeJuegos": [
+          "salajuegos-41be3"
+        ]
+      }
+    }
   }
 }

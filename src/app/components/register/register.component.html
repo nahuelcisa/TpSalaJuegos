@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+
+          <div class="botones">
+              <h2 class="inactive underlineHover" routerLink="/login"> Iniciar Sesion </h2>
+              <h2 class="active" >Registrarse </h2>
+          </div>
+
+          <div class="fadeIn first">
+            <img src="../../../assets/favico.png" id="icon" alt="User Icon" />
+          </div>
+ 
+          <form (ngSubmit)="registro()" >
+            <input type="text"  [(ngModel)]="email" id="login" class="fadeIn second" name="login" placeholder="Correo" >
+            <input type="password"  [(ngModel)]="clave" id="password" class="fadeIn third" name="login" placeholder="Clave">
+            <input type="password" [(ngModel)]="clave1" id="password1" class="fadeIn third" name="login" placeholder="Reingrese clave">
+            <input type="submit" class="fadeIn fourth" value="Registrarse">
+          </form>
+        </div>
+      </div>
+</div>

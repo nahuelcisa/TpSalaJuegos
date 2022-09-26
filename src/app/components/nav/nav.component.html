@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg " style="background-color: #e3f2fda8;">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home']">Inicio</a>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Juegos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Ahorcado</a>
+            <a class="dropdown-item" href="#">Mayor o Menor</a>
+            <a class="dropdown-item" href="#">Preguntados</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/resultados']">Resultados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/quiensoy']">Quien Soy</a>
+        </li>
+    </ul>
+      <ul class=" navbar-nav my-2 my-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" >{{this.as.logueado.correo}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="this.as.logout()">Cerrar Sesion</a>
+        </li>
+      </ul>
+  </div>
+</nav>

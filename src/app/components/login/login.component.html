@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="container">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+
+          <div class="botones">
+              <h2 class="active"> Iniciar Sesion </h2>
+              <h2 class="inactive underlineHover" routerLink="/registro">Registrarse </h2>
+          </div>
+
+          <div class="fadeIn first">
+            <img src="../../../assets/favico.png" id="icon" alt="User Icon" />
+          </div>
+ 
+          <form (ngSubmit)="iniciarSesion()">
+            <input type="text" id="login" [(ngModel)]="email" class="fadeIn second" name="login" placeholder="Correo">
+            <input type="password" id="password"  [(ngModel)]="clave" class="fadeIn third" name="login" placeholder="Clave">
+            <input type="submit" class="fadeIn fourth" value="Ingresar" >
+          </form>
+        </div>
+      </div>
+</div>
