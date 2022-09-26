@@ -22,6 +22,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { AhorcadoComponent } from './components/Juegos/ahorcado/ahorcado.component';
+import { MayorMenorComponent } from './components/Juegos/mayor-menor/mayor-menor.component';
+import { PreguntadosComponent } from './components/Juegos/preguntados/preguntados.component';
+import { CalculoExactoComponent } from './components/Juegos/calculo-exacto/calculo-exacto.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { ErrorComponent } from './components/error/error.component';
+
 
 
 @NgModule({
@@ -31,7 +38,13 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     HomeComponent,
     QuienSoyComponent,
     RegisterComponent,
-    NavComponent
+    NavComponent,
+    AhorcadoComponent,
+    MayorMenorComponent,
+    PreguntadosComponent,
+    CalculoExactoComponent,
+    ChatComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

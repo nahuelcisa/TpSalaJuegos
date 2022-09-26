@@ -16,6 +16,8 @@ export class AuthService {
   auth : any;
 
   constructor(public router : Router,private toastr: ToastrService, private fs : FirestoreService) { 
+    this.logueado.correo = undefined;
+    this.logueado.clave = undefined;
     this.auth = getAuth();
   }
 
