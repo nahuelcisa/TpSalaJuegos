@@ -9,9 +9,10 @@
             Juegos
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Ahorcado</a>
-            <a class="dropdown-item" href="#">Mayor o Menor</a>
-            <a class="dropdown-item" href="#">Preguntados</a>
+            <a class="dropdown-item" [routerLink]="['/SalaJuegos/ahorcado']">Ahorcado</a>
+            <a class="dropdown-item" [routerLink]="['/SalaJuegos/mayormenor']">Mayor o Menor</a>
+            <a class="dropdown-item" [routerLink]="['/SalaJuegos/preguntados']">Preguntados</a>
+            <a class="dropdown-item" [routerLink]="['/SalaJuegos/propio']">Preguntados</a>
           </div>
         </li>
         <li class="nav-item">
