@@ -39,8 +39,7 @@ export class AuthService {
         this.logueado.correo = email;
         this.logueado.clave = password;
 
-        let hora = Date.now();
-
+        let hora = new Date();
         let log = {
           usuario: this.logueado,
           hora: hora
