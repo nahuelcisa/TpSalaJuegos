@@ -28,6 +28,7 @@ import { PreguntadosComponent } from './components/Juegos/preguntados/preguntado
 import { CalculoExactoComponent } from './components/Juegos/calculo-exacto/calculo-exacto.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ErrorComponent } from './components/error/error.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -57,6 +58,7 @@ import { ErrorComponent } from './components/error/error.component';
     provideMessaging(() => getMessaging()),
     provideFirebaseApp( () => initializeApp(environment.firebase)),   
     AngularFireModule.initializeApp(environment.firebase),
+    HttpClientModule
   ],
   providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]

@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'registro', component: RegisterComponent },
   { path: 'error', component: ErrorComponent },
   {path: 'chat', component: ChatComponent , canActivate: [GuardGuard]},
-  { path: 'SalaJuegos', loadChildren: () => import('./sala-juegos/sala-juegos.module').then(m => m.SalaJuegosModule)  , canActivate: [GuardGuard] },
+  { path: 'salaJuegos', loadChildren: () => import('./sala-juegos/sala-juegos.module').then(m => m.SalaJuegosModule)  , canActivate: [GuardGuard] },
   { path: '**', component: ErrorComponent }
 
   

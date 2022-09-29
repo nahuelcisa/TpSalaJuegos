@@ -1,1 +1,27 @@
-<p>calculo-exacto works!</p>
+<app-nav></app-nav>
+<div class="container">
+    <div class="row g-7 justify-content-center mt-5">    
+        <div class="col-12 col-sm-11 col-md-10 col-lg-9 col-xxl-7 col-xl-7 rounded bg-dark d-flex flex-wrap justify-content-center p-3">
+            <div class="mb-1 rounded p-1 w-100">
+                <div class="w-100 text-start p-2 fs-4 mb-2 rounded" style="background-color: rgb(116, 37, 190); color: white;" >{{this.aAproximarse}}</div>
+                <div class="w-100 text-end p-2 fs-4 mb-2 rounded" style="float: right;" style="background-color: rgb(255, 115, 0); color: white;">{{this.numeroActual}}</div>
+                <div class="text-light w-100 text-end p-2 fs-4" style="float: right;">Operaciones: {{this.operaciones}}</div>
+            </div>
+                <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xxl-10 col-xl-10 mt-3 justify-content-center"> 
+                    <div class="botonera pt-3 w-50" style="float: left;">
+                        <button class="btn btn-light w-100 mb-3" *ngFor="let numero of operandos" (click)="asignarOperando(numero)" [disabled] = 'this.disabled'>{{numero}}</button>
+                    </div>
+                    <div class="operadores p-3 w-50">
+                        <button class="btn btn-light w-100 mb-3" (click)="operar('+')" [disabled] = 'this.disabledOperador'>+</button>
+                        <button class="ms-2 me-1 btn btn-light w-100 mb-3" (click)="operar('-')" [disabled] = 'this.disabledOperador'>-</button>
+                        <button class="btn btn-light w-100 mb-3" (click)="operar('*')" [disabled] = 'this.disabledOperador'>*</button>
+                        <button class="ms-2 me-2 btn btn-light w-100 mb-3" (click)="operar('/')" [disabled] = 'this.disabledOperador'>/</button>
+                    </div>
+                    <div class="text-end pe-2">
+                        <button class="boton text-end btn" (click)="this.analisis()">Listo</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+

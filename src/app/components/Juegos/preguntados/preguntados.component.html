@@ -1,1 +1,27 @@
-<p>preguntados works!</p>
+<app-nav></app-nav>
+<div class="container">
+    <div class="row justify-content-center mt-5">    
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xxl-3 col-xl-4 rounded d-flex flex-wrap justify-content-center p-3 mb-3 form">
+            <div class="rounded p-2 text-center fs-5" style="color: white; background-color: rgb(116, 37, 190);">
+                <p class="p-2 m-0">{{this.preguntaActual.pregunta}}</p>
+                <img class="rounded mb-1" src={{this.preguntaActual.img}} width="150px" height="150px"/>
+            </div>
+            <div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xxl-10 col-xl-10 mt-1 justify-content-center">
+                <ul class="row justify-content-center" style="list-style: none; padding-left: 0px; margin-top: 50px;">
+                    <li class="mr-3">
+                        <button class="col-12  btn w-100 mb-3 " (click)="validarRespuesta(this.preguntaActual.opciones[0])" [ngClass]="{'correcta' : this.preguntaActual.opciones[0] === this.preguntaActual.correcta && this.correcta,'incorrecta' : this.preguntaActual.opciones[0] !== this.preguntaActual.correcta && this.incorrecta}">{{this.preguntaActual.opciones[0]}}</button>
+                    </li>
+                    <li class="mr-3">
+                        <button class="col-12  btn w-100 mb-3" (click)="validarRespuesta(this.preguntaActual.opciones[1])" [ngClass]="{'correcta' : this.preguntaActual.opciones[1] === this.preguntaActual.correcta && this.correcta,'incorrecta' : this.preguntaActual.opciones[1] !== this.preguntaActual.correcta && this.incorrecta}">{{this.preguntaActual.opciones[1]}}</button>
+                    </li>
+                    <li class="mr-3">
+                        <button class="col-12  btn w-100 mb-3" (click)="validarRespuesta(this.preguntaActual.opciones[2])" [ngClass]="{'correcta' : this.preguntaActual.opciones[2] === this.preguntaActual.correcta && this.correcta,'incorrecta' : this.preguntaActual.opciones[2] !== this.preguntaActual.correcta && this.incorrecta}">{{this.preguntaActual.opciones[2]}}</button>
+                    </li>
+                    <li class="mr-3">
+                        <button class="col-12  btn w-100 mb-3" (click)="validarRespuesta(this.preguntaActual.opciones[3])" [ngClass]="{'correcta' : this.preguntaActual.opciones[3] === this.preguntaActual.correcta && this.correcta,'incorrecta' : this.preguntaActual.opciones[3] !== this.preguntaActual.correcta && this.incorrecta}">{{this.preguntaActual.opciones[3]}}</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
