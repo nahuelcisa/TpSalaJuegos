@@ -27,7 +27,6 @@ import { MayorMenorComponent } from './components/Juegos/mayor-menor/mayor-menor
 import { PreguntadosComponent } from './components/Juegos/preguntados/preguntados.component';
 import { CalculoExactoComponent } from './components/Juegos/calculo-exacto/calculo-exacto.component';
 import { ChatComponent } from './components/chat/chat.component';
-import { ErrorComponent } from './components/error/error.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -44,8 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     MayorMenorComponent,
     PreguntadosComponent,
     CalculoExactoComponent,
-    ChatComponent,
-    ErrorComponent
+    ChatComponent
   ],
   imports: [
     BrowserModule,
