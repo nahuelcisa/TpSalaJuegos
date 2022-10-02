@@ -15,6 +15,8 @@ export class AuthService {
 
   auth : any;
 
+  log : Usuario = {};
+
   constructor(public router : Router,private toastr: ToastrService, private fs : FirestoreService) { 
     this.logueado.correo = undefined;
     this.logueado.clave = undefined;
@@ -28,7 +30,6 @@ export class AuthService {
       this.toastr.success('USUARIO REGISTRADO!', 'Disfruta!');
       this.router.navigate(['/home']);
     });
-    console.log(usuario);
     
   }
 
@@ -39,14 +40,18 @@ export class AuthService {
         this.logueado.correo = email;
         this.logueado.clave = password;
 
-        let hora = new Date();
-        let log = {
-          usuario: this.logueado,
-          hora: hora
+        let date : Date = new Date();
+
+        this.log.usuario = this.logueado;
+        this.log.fIngreso = date;
+
+        let usuario : Usuario = {
+          usuario : this.log.usuario.correo,
+          fIngreso : date
         }
-        console.log(log);
+
         this.router.navigate(['/home']);
-        console.log(this.fs.agregarLog(log));
+        this.fs.agregarLog(usuario);
     
     }).catch(response =>{
       

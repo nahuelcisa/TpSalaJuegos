@@ -10,12 +10,12 @@
           <div class="fadeIn first">
             <img src="../../../assets/favico.png" id="icon" alt="User Icon" />
           </div>
- 
-          <form (ngSubmit)="iniciarSesion()">
-            <input type="text" id="login" [(ngModel)]="email" class="fadeIn second" name="login" placeholder="Correo">
-            <input type="password" id="password"  [(ngModel)]="clave" class="fadeIn third" name="login" placeholder="Clave">
-            <input type="submit" class="fadeIn fourth" value="Ingresar" >
-          </form>
+
+            <input type="text" id="login" [(ngModel)]= "email" class="fadeIn second" name="login" placeholder="Correo" value='{{this.email}}'>
+            <input type="password" id="password"  [(ngModel)]= "clave" class="fadeIn third" name="login" placeholder="Clave">
+            <input type="submit" class="fadeIn fourth" value="Ingresar" (click)="iniciarSesion()">
+
+          <input type="submit" class="fadeIn fourth" value="Inicio rapido" (click)="llenarCredenciales()">
         </div>
       </div>
 </div>

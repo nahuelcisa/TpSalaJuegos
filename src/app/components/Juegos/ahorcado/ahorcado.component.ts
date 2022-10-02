@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-ahorcado',
@@ -18,7 +20,9 @@ export class AhorcadoComponent implements OnInit {
   acertadas : number;
   disabled : boolean = false;
 
-  constructor(private toast : ToastrService) { 
+  constructor(private toast : ToastrService,
+    private fs : FirestoreService,
+    private as : AuthService) { 
     this.letras = ["A","B","C","D","E","F","G","H","I",
     "J","K","L","M","N","Ñ","O","P","Q","R",
     "S","T","U","V","W","X","Y","Z"];
@@ -97,18 +101,34 @@ export class AhorcadoComponent implements OnInit {
 
   juegoPerdido()
   {
-    this.toast.error("Has alcanzado el limite de fallos","Has perdido");
+    this.toast.error("Has alcanzado el limite de fallos","Has perdido. Puntaje 0.");
     this.disabled = true;
     setTimeout(() => {
+      let date : Date = new Date();
+      let resultado = {
+        usuario : this.as.logueado.correo,
+        hora: date,
+        puntos : 0,
+        juego: 'ahorcado'
+      }
+      this.fs.agregarResultado(resultado);
       this.reiniciar();
     }, 2200);
   }
 
   juegoGanado()
   {
-    this.toast.success("Has adivinado la palabra","Has ganado");
+    this.toast.success("Has adivinado la palabra","Has ganado. Puntaje 10.");
     this.disabled = true;
     setTimeout(() => {
+      let date : Date = new Date();
+      let resultado = {
+        usuario : this.as.logueado.correo,
+        hora: date,
+        puntos : 10,
+        juego: 'ahorcado'
+      }
+      this.fs.agregarResultado(resultado);
       this.reiniciar();
     }, 2200);
   }

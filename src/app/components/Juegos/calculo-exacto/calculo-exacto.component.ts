@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import { textChangeRangeIsUnchanged } from 'typescript';
 
 @Component({
@@ -19,7 +21,9 @@ export class CalculoExactoComponent implements OnInit {
   disabledOperador : boolean = true;
   puntaje : number = 0;
 
-  constructor(private toast : ToastrService) {
+  constructor(private toast : ToastrService,
+    private fs : FirestoreService,
+    private as : AuthService) {
     this.numeros = [1,2,3,4,5,6,7,8,9,10,
                     11,12,13,14,15,16,17,18,
                     19,20];
@@ -92,6 +96,7 @@ export class CalculoExactoComponent implements OnInit {
   {
     let resultado : number = this.aAproximarse - this.numeroActual;
 
+
     if(resultado == 0)
     {
       this.puntaje = 10;
@@ -144,6 +149,14 @@ export class CalculoExactoComponent implements OnInit {
                       11,12,13,14,15,16,17,18,
                       19,20];
       this.operandos = [];
+      let date : Date = new Date();
+      let resultado = {
+        usuario : this.as.logueado.correo,
+        hora: date,
+        puntos : this.puntaje,
+        juego: 'calculo exacto'
+      }
+      this.fs.agregarResultado(resultado);
       this.inicializar();
     }, 2000);
   }

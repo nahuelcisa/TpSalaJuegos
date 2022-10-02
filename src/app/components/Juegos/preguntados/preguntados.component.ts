@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Pregunta } from '../../../clases/pregunta';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-preguntados',
@@ -55,7 +57,9 @@ export class PreguntadosComponent implements OnInit {
   correcta : boolean = false;
   incorrecta : boolean = false;
 
-  constructor(private toast : ToastrService,public api : ApiService) { 
+  constructor(private toast : ToastrService,public api : ApiService,
+    private fs : FirestoreService,
+    private as : AuthService) { 
     this.InicializarPregunta();
     this.llamarApi();
    }
@@ -89,6 +93,14 @@ export class PreguntadosComponent implements OnInit {
       {
         this.toast.success("Acertaste la respuesta","Correcto");
         this.correcta = true;
+        let date : Date = new Date();
+        let resultado = {
+          usuario : this.as.logueado.correo,
+          hora: date,
+          puntos : 10,
+          juego: 'preguntados'
+        }
+        this.fs.agregarResultado(resultado);
         this.reiniciar();
       }
       else
@@ -96,6 +108,14 @@ export class PreguntadosComponent implements OnInit {
         this.toast.error("No acertaste la respuesta","Incorrecto");
         this.incorrecta = true;
         this.correcta = true;
+        let date : Date = new Date();
+        let resultado = {
+          usuario : this.as.logueado.correo,
+          hora: date,
+          puntos : 0,
+          juego: 'preguntados'
+        }
+        this.fs.agregarResultado(resultado);
         this.reiniciar();
       }
    }

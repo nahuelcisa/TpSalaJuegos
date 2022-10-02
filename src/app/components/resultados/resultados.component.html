@@ -1,0 +1,51 @@
+<app-nav></app-nav>
+<section class="pb_section pb_section_v1" data-section="about" id="section-about">
+    <div class="container">
+      <div class="row justify-content-center mt-5">    
+            <div class="rounded p-1 text-center fs-5" style="color: white; background-color: rgb(53, 51, 51);">
+                <table style="width:100%">
+                    <tr>
+                      <th>USUARIO</th>
+                      <th>JUEGO</th>
+                      <th>PUNTAJE</th>
+                      <th>HORA</th>
+                    </tr>
+                    <tr *ngFor="let item of this.resultados">
+                      <td>{{item.usuario}}</td>
+                      <td>{{item.juego}}</td>
+                      <td>{{item.puntos}}</td>
+                      <td>{{item.hora}}</td>
+                    </tr>
+                  </table>
+<!--                 <div class="row">
+                    <div class="col">
+                      USUARIO
+                    </div>
+                    <div class="col">
+                      JUEGO
+                    </div>
+                    <div class="col">
+                      PUNTAJE
+                    </div>
+                    <div class="col">
+                      HORA
+                    </div>
+                </div>
+                <div class="row" *ngFor="let item of this.resultados">
+                    <div class="col">
+                      {{item.usuario}}
+                    </div>
+                    <div class="col">
+                      {{item.juego}}
+                    </div>
+                    <div class="col">
+                      {{item.puntos}}
+                    </div>
+                    <div class="col">
+                      {{item.hora}}
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>  
+  </section>

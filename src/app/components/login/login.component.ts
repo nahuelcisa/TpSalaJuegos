@@ -8,15 +8,25 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public as: AuthService) { }
 
-  email! : string;
-  clave! : string;
+  email : string = '';
+  clave : string = '';
+
+  constructor(public as: AuthService, ) { 
+
+    
+  }
+
 
   ngOnInit(): void {
   }
   
   iniciarSesion(){
     this.as.login(this.email,this.clave);
+  }
+
+  llenarCredenciales(){
+    this.email = 'nahuelcisa17@gmail.com';
+    this.clave = '123456';
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -16,7 +18,9 @@ export class MayorMenorComponent implements OnInit {
   inicio : boolean = false;
   puntaje : number;
 
-  constructor(public toast : ToastrService, public api : ApiService) { 
+  constructor(public toast : ToastrService, public api : ApiService,
+    private fs : FirestoreService,
+    private as : AuthService) { 
     this.puntaje = 0;
     this.cartaInicial = {img:'../../../assets/cartas/0.png',value : 0};
     this.cartaAComparar = {img:'../../../assets/cartas/0.png',value : 0};
@@ -132,6 +136,14 @@ export class MayorMenorComponent implements OnInit {
           {
             this.juegoPerdido("Era menor, su puntaje ha sido de " + this.puntaje + " puntos");
             setTimeout(() => {
+              let date : Date = new Date();
+              let resultado = {
+                usuario : this.as.logueado.correo,
+                hora: date,
+                puntos : this.puntaje,
+                juego: 'mayor menor'
+              }
+              this.fs.agregarResultado(resultado);
               this.reiniciar();
             }, 2500);       
           }
@@ -158,6 +170,14 @@ export class MayorMenorComponent implements OnInit {
             {
               this.juegoPerdido("Era mayor, su puntaje ha sido de " + this.puntaje + " puntos");
               setTimeout(() => {
+                let date : Date = new Date();
+                let resultado = {
+                  usuario : this.as.logueado.correo,
+                  hora: date,
+                  puntos : this.puntaje,
+                  juego: 'mayor menor'
+                }
+                this.fs.agregarResultado(resultado);
                this.reiniciar();
               }, 2500);  
             }
