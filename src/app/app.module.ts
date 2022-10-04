@@ -30,6 +30,10 @@ import { ChatComponent } from './components/chat/chat.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ResultadosComponent } from './components/resultados/resultados.component';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -60,9 +64,13 @@ import { EncuestaComponent } from './components/encuesta/encuesta.component';
     provideMessaging(() => getMessaging()),
     provideFirebaseApp( () => initializeApp(environment.firebase)),   
     AngularFireModule.initializeApp(environment.firebase),
-    HttpClientModule
+    HttpClientModule,
+    MatRadioModule,
+    MatInputModule,
+    MatSliderModule,
+    MatButtonModule
   ],
-  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

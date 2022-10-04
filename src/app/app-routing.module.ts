@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'registro', component: RegisterComponent },
   {path: 'chat', component: ChatComponent , canActivate: [GuardGuard]},
   {path:'resultados', component:ResultadosComponent, canActivate: [GuardGuard]},
-  {path:'encuesta', component:EncuestaComponent},
+  {path:'encuesta', component:EncuestaComponent, canActivate: [GuardGuard]},
   { path: 'salaJuegos', loadChildren: () => import('./sala-juegos/sala-juegos.module').then(m => m.SalaJuegosModule)  , canActivate: [GuardGuard] },
   { path: '**', component: LoginComponent }
 ];

@@ -3,20 +3,8 @@
   <div class="container">
     <div class="row justify-content-center mt-5">    
       <div class="col-12 rounded d-flex flex-wrap justify-content-center p-3 form">
-          <div class="rounded p-1 text-center" style="color: white; background-color: rgb(53, 51, 51);">
-            <h2>ENCUESTA SALA DE JUEGOS</h2>
-            <form action="">
-                <label>
-                    <input type="radio" value="0">0
-                </label>
-                <label >
-                    <input type="radio" value="1">1
-                </label>
-                <label >
-                    <input type="radio" value="2">2
-                </label>
-            </form>
-            <!-- <table>
+          <div class="rounded p-1 text-center" style="color: white; background-color: rgb(53, 51, 51);">         
+            <table>
                 <tr>
                   <th>ENCUESTA SALA DE JUEGOS</th>
                 </tr>
@@ -24,53 +12,58 @@
                   <td>Nombre</td>
                 </tr>
                 <tr>
-                    <input type="text">
+                    <input matInput [(ngModel)]= "nombre" name="fieldName" ngDefaultControl>
                 </tr>
                 <tr>
                   <td>Apellido</td>
                 </tr>
                 <tr>
-                    <input type="text">
+                    <input type="text" [(ngModel)]= "apellido" name="fieldName" ngDefaultControl>
                 </tr>
                 <tr>
                   <td>Edad</td>
                 </tr>
                 <tr>
-                    <input type="text">
+                    <input type="number" min="18" max="99" [(ngModel)]= "edad" name="fieldName" ngDefaultControl>
                 </tr>
                 <tr>
                   <td>Numero de telefono</td>
                 </tr>
                 <tr>
-                    <input type="text">
+                    <input type="number" maxlength="10" [(ngModel)]= "nroTel" name="fieldName" ngDefaultControl>
                 </tr>
                 <tr>
                   <td>Cuanto se divirtio usando esta sala de juegos? (1-10)</td>
                 </tr>
                 <tr>
-                    <input type="text">
+                    <mat-slider
+                    thumbLabel
+                    tickInterval="1"
+                    step="1"
+                    min="1"
+                    max="10"
+                    aria-label="units" [(ngModel)]= "preg1" name="fieldName" ngDefaultControl></mat-slider>
                 </tr>
                 <tr>
                   <td>Cuantos juegos agregaria?</td>
                 </tr>
                 <tr>
-                    <label>
-                        <input type="radio" value="0">0
-                    </label>
-                    <label >
-                        <input type="radio" value="1">1
-                    </label>
-                    <label >
-                        <input type="radio" value="2">2
-                    </label>
+                <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="0" checked [(ngModel)]= "preg2" name="fieldName" ngDefaultControl >0</mat-radio-button>
+                <mat-radio-button value="1" [(ngModel)]= "preg2" name="fieldName" ngDefaultControl>1</mat-radio-button>
+                <mat-radio-button value="2" [(ngModel)]= "preg2" name="fieldName" ngDefaultControl>2</mat-radio-button>
+              </mat-radio-group>
                 </tr>
                 <tr>
                   <td>Que cambios realizaria?</td>
                 </tr>
                 <tr>
-                    <input type="text">
+                    <input type="text" [(ngModel)]= "preg3" name="fieldName" ngDefaultControl>
                 </tr>
-              </table> -->
+                <tr>
+                    <button mat-raised-button style="margin-top: 15px" (click)="enviarResultados()">Enviar encuesta</button>
+                </tr>
+              </table>
           </div>
       </div>
     </div>

@@ -9,14 +9,20 @@ export class FirestoreService {
 
   logUsuariosCollectionReference : any;
   resultadosCollectionReference : any;
+  encuestaCollectionReference : any;
 
   constructor(public FireStore: Firestore) { 
     this.logUsuariosCollectionReference = collection(this.FireStore,'registros');
     this.resultadosCollectionReference = collection(this.FireStore,'resultados');
+    this.encuestaCollectionReference = collection(this.FireStore, 'encuesta');
   }
 
   agregarLog(log : any){
     return addDoc(this.logUsuariosCollectionReference,log);
+  }
+
+  agregarEncuesta(encuesta : any){
+    return addDoc(this.encuestaCollectionReference,encuesta);
   }
 
   agregarResultado(resultado : any){
